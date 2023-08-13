@@ -1,8 +1,11 @@
 package qa.util;
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,48 +19,47 @@ public class TestUtil extends Base {
 
     public static long PAGE_LOAD_TIMEOUT = 20;
     public static long IMPLICIT_WAIT = 20;
-
-    public static String TESTDATA_SHEET_PATH = "/Users/freshworks/IdeaProjects/DemoProject/src/main/java/org/qa/testData/testdata.xlsx";
     static Workbook book;
     static Sheet sheet;
     static JavascriptExecutor js;
+    static String searchText = "";
 
-    public void switchToFrame() {
-        driver.switchTo().frame("mainpanel");
-    }
 
-    public static Object[][] getTestData(String sheetName) throws IOException {
-        FileInputStream file = null;
-        try {
-            file = new FileInputStream(TESTDATA_SHEET_PATH);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public static String readExcel(String filePath, String fileName, String sheetName, int k, int l) throws IOException {
+        File file = new File(filePath + "//" + fileName);
+        FileInputStream inputStream = new FileInputStream(file);
+        Workbook demoWorkBook = null;
+        String fileExtensionName = fileName.substring(fileName.indexOf("."));
+        if (fileExtensionName.equals(".xlsx")) {
+            demoWorkBook = new XSSFWorkbook(inputStream);
+        } else if (fileExtensionName.equals(".xls")) {
+            demoWorkBook = new HSSFWorkbook(inputStream);
         }
-        try {
-            book = WorkbookFactory.create(file);
-            //}catch (InvalidFormatException e) { e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-            }
-            sheet = book.getSheet(sheetName);
-            Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
-            for (int i = 0; i < sheet.getLastRowNum(); i++) {
-                for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
-                    data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+        Sheet demoSheet = demoWorkBook.getSheet(sheetName);
+        int rowCount = demoSheet.getLastRowNum() - demoSheet.getFirstRowNum();
+
+        Row row = null;
+        for (int i = 1; i < rowCount + 1; i++) {
+            row = demoSheet.getRow(i);
+            for (int j = 0; j < row.getLastCellNum(); j++) {
+                if (i == k && j == l) {
+                    searchText = row.getCell(j).getStringCellValue();
+                    break;
                 }
             }
-            return data;
         }
-
-        public static void takeScreenshotAtEndOfTest() {
-            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            String currentDir = System.getProperty("user.dir");
-            try {
-                FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
-            } catch (IOException e)
-            {
-                throw new RuntimeException(e);
-            }
-        }
-
+        return searchText;
     }
+
+    public static void takeScreenshotTest() {
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String currentDir = System.getProperty("user.dir");
+        try {
+            FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+
+

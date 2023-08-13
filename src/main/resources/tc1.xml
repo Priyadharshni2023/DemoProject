@@ -5,7 +5,7 @@
         <classes>
             <class name="qa.TestMethods.HomePageTest">
                 <methods>
-                    <include name="launchBrowserAndAcceptCookies"/>
+                    <include name="enterSearchText"/>
                 </methods>
             </class>
         </classes>

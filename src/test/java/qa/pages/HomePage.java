@@ -9,6 +9,7 @@ import static qa.base.Base.driver;
 public class HomePage {
     public By CookiesAcceptAllButton = By.xpath("//*[@id=\"L2AGLb\"]/div");
     public By InputField = By.id("APjFqb");
+    public By SearchResult = By.xpath("//h3[contains(@class,'LC20lb')]");
     public HomePage(WebDriver driver)
     {
         PageFactory.initElements(driver,this);
