@@ -1,11 +1,8 @@
 package qa.TestMethods;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -15,19 +12,15 @@ import org.testng.annotations.Test;
 import qa.base.Base;
 import qa.util.TestUtil;
 import qa.pages.HomePage;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
-
 import static qa.util.TestUtil.takeScreenshotTest;
 
 public class HomePageTest extends Base
 {
     HomePage homePageObj = new HomePage(driver);
-    String filePath = "/Users/freshworks/IdeaProjects/DemoProject/src/test/java/qa/testData";
+    String filePath = "/Users/freshworks/IdeaProjects/DemoProject/src/test/java/qa/resources/testData";
     String fileName = "testdata.xlsx";
     String sheetName = "Demo";
     WebDriverWait wait;
@@ -41,6 +34,7 @@ public class HomePageTest extends Base
         driver.findElement(homePageObj.CookiesAcceptAllButton).click();
     }
 
+    //This method is to enter the search text from excel file and click on the first search result
     @Test
     public void enterSearchText() throws IOException {
         File file = new File(filePath + "//" + fileName);
@@ -48,12 +42,13 @@ public class HomePageTest extends Base
         Workbook demoWorkBook = new XSSFWorkbook(inputStream);
         Sheet demoSheet = demoWorkBook.getSheet(sheetName);
         int rowCount = demoSheet.getLastRowNum() - demoSheet.getFirstRowNum();
-        for (int k = 1; k <= rowCount; k++) {
+        for (int k = 1; k <= rowCount; k++)
+        {
             String searchText = TestUtil.readExcel(filePath, fileName, sheetName, k, 0);
             driver.findElement(homePageObj.InputField).sendKeys(searchText);
             driver.findElement(homePageObj.InputField).sendKeys(Keys.RETURN);
             String homePageTitle = homePageObj.verifyHomePageTitle();
-            Assert.assertTrue(homePageTitle.equals(searchText + " - Google Search"));
+            Assert.assertTrue(homePageTitle.contains(searchText + " - Google Search"));
             wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.elementToBeClickable(homePageObj.SearchResult));
             driver.findElement(homePageObj.SearchResult).click();

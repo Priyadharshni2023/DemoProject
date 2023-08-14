@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-14T00:06:59 CEST" name="All Test Suite" finished-at="2023-08-14T00:07:36 CEST" duration-ms="37297">
+  <suite started-at="2023-08-14T08:14:31 CEST" name="All Test Suite" finished-at="2023-08-14T08:14:57 CEST" duration-ms="26150">
     <groups>
     </groups>
-    <test started-at="2023-08-14T00:06:59 CEST" name="TC_01_ValidateIfSignUpFunctionalityIsWorkingFine" finished-at="2023-08-14T00:07:36 CEST" duration-ms="37297">
+    <test started-at="2023-08-14T08:14:31 CEST" name="TC_01_Validate Search results and select the first result" finished-at="2023-08-14T08:14:57 CEST" duration-ms="26150">
       <class name="qa.TestMethods.HomePageTest">
-        <test-method is-config="true" signature="launchBrowserAndAcceptCookies()[pri:0, instance:qa.TestMethods.HomePageTest@3b2cf7ab]" started-at="2023-08-14T00:06:59 CEST" name="launchBrowserAndAcceptCookies" finished-at="2023-08-14T00:07:06 CEST" duration-ms="6879" status="PASS">
+        <test-method is-config="true" signature="launchBrowserAndAcceptCookies()[pri:0, instance:qa.TestMethods.HomePageTest@37e547da]" started-at="2023-08-14T08:14:31 CEST" name="launchBrowserAndAcceptCookies" finished-at="2023-08-14T08:14:35 CEST" duration-ms="4876" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowserAndAcceptCookies -->
-        <test-method signature="enterSearchText()[pri:0, instance:qa.TestMethods.HomePageTest@3b2cf7ab]" started-at="2023-08-14T00:07:06 CEST" name="enterSearchText" finished-at="2023-08-14T00:07:36 CEST" duration-ms="29877" status="PASS">
+        <test-method signature="enterSearchText()[pri:0, instance:qa.TestMethods.HomePageTest@37e547da]" started-at="2023-08-14T08:14:35 CEST" name="enterSearchText" finished-at="2023-08-14T08:14:56 CEST" duration-ms="20762" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- enterSearchText -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:qa.TestMethods.HomePageTest@3b2cf7ab]" started-at="2023-08-14T00:07:36 CEST" name="tearDown" finished-at="2023-08-14T00:07:36 CEST" duration-ms="488" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:qa.TestMethods.HomePageTest@37e547da]" started-at="2023-08-14T08:14:56 CEST" name="tearDown" finished-at="2023-08-14T08:14:57 CEST" duration-ms="426" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- qa.TestMethods.HomePageTest -->
-    </test> <!-- TC_01_ValidateIfSignUpFunctionalityIsWorkingFine -->
+    </test> <!-- TC_01_Validate Search results and select the first result -->
   </suite> <!-- All Test Suite -->
 </testng-results>

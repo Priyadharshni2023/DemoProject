@@ -1,16 +1,11 @@
 package qa.base;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import qa.util.TestUtil;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 public class Base {
     public static WebDriver driver;
@@ -20,7 +15,7 @@ public class Base {
     {
         try {
             prop = new Properties();
-            FileInputStream ip = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/qa/config/config.properties");
+            FileInputStream ip = new FileInputStream(System.getProperty("user.dir") + "/src/test/java/qa/resources/config/config.properties");
             prop.load(ip);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -32,10 +27,10 @@ public class Base {
     {
         String browserName = prop.getProperty("browser");
         if (browserName.equals("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "/Users/freshworks/IdeaProjects/DemoProject/src/main/resources/Drivers/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/Users/freshworks/IdeaProjects/DemoProject/src/test/java/qa/resources/drivers/chromedriver");
             driver = new ChromeDriver();
         } else if (browserName.equals("FF")) {
-            System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");
+            System.setProperty("webdriver.gecko.driver", "/Users/freshworks/IdeaProjects/DemoProject/src/test/java/qa/resources/drivers/geckodriver");
             driver = new FirefoxDriver();
         }
     }

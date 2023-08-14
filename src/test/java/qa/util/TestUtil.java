@@ -12,19 +12,13 @@ import org.openqa.selenium.TakesScreenshot;
 import qa.base.Base;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TestUtil extends Base {
-
-    public static long PAGE_LOAD_TIMEOUT = 20;
-    public static long IMPLICIT_WAIT = 20;
-    static Workbook book;
-    static Sheet sheet;
-    static JavascriptExecutor js;
     static String searchText = "";
 
 
+    //This method checks the file format and fetched the required data from the excel sheet
     public static String readExcel(String filePath, String fileName, String sheetName, int k, int l) throws IOException {
         File file = new File(filePath + "//" + fileName);
         FileInputStream inputStream = new FileInputStream(file);
@@ -37,7 +31,6 @@ public class TestUtil extends Base {
         }
         Sheet demoSheet = demoWorkBook.getSheet(sheetName);
         int rowCount = demoSheet.getLastRowNum() - demoSheet.getFirstRowNum();
-
         Row row = null;
         for (int i = 1; i < rowCount + 1; i++) {
             row = demoSheet.getRow(i);
@@ -51,6 +44,7 @@ public class TestUtil extends Base {
         return searchText;
     }
 
+    //This method is to capture screenshot when ever needed
     public static void takeScreenshotTest() {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         String currentDir = System.getProperty("user.dir");
