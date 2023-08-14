@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-08-14T08:14:31 CEST" name="All Test Suite" finished-at="2023-08-14T08:14:57 CEST" duration-ms="26150">
+  <suite started-at="2023-08-14T09:21:53 CEST" name="All Test Suite" finished-at="2023-08-14T09:22:25 CEST" duration-ms="32222">
     <groups>
     </groups>
-    <test started-at="2023-08-14T08:14:31 CEST" name="TC_01_Validate Search results and select the first result" finished-at="2023-08-14T08:14:57 CEST" duration-ms="26150">
+    <test started-at="2023-08-14T09:21:53 CEST" name="TC_01_Validate Search results and select the first result" finished-at="2023-08-14T09:22:25 CEST" duration-ms="32222">
       <class name="qa.TestMethods.HomePageTest">
-        <test-method is-config="true" signature="launchBrowserAndAcceptCookies()[pri:0, instance:qa.TestMethods.HomePageTest@37e547da]" started-at="2023-08-14T08:14:31 CEST" name="launchBrowserAndAcceptCookies" finished-at="2023-08-14T08:14:35 CEST" duration-ms="4876" status="PASS">
+        <test-method is-config="true" signature="launchBrowserAndAcceptCookies()[pri:0, instance:qa.TestMethods.HomePageTest@3c153a1]" started-at="2023-08-14T09:21:53 CEST" name="launchBrowserAndAcceptCookies" finished-at="2023-08-14T09:22:01 CEST" duration-ms="8672" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchBrowserAndAcceptCookies -->
-        <test-method signature="enterSearchText()[pri:0, instance:qa.TestMethods.HomePageTest@37e547da]" started-at="2023-08-14T08:14:35 CEST" name="enterSearchText" finished-at="2023-08-14T08:14:56 CEST" duration-ms="20762" status="PASS">
+        <test-method signature="enterSearchText()[pri:0, instance:qa.TestMethods.HomePageTest@3c153a1]" started-at="2023-08-14T09:22:02 CEST" name="enterSearchText" finished-at="2023-08-14T09:22:24 CEST" duration-ms="22749" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- enterSearchText -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:qa.TestMethods.HomePageTest@37e547da]" started-at="2023-08-14T08:14:56 CEST" name="tearDown" finished-at="2023-08-14T08:14:57 CEST" duration-ms="426" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:qa.TestMethods.HomePageTest@3c153a1]" started-at="2023-08-14T09:22:24 CEST" name="tearDown" finished-at="2023-08-14T09:22:25 CEST" duration-ms="631" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
